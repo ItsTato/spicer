@@ -1,6 +1,6 @@
 from colorama import just_fix_windows_console, Fore
 
-def help(command_name:str) -> None:
+def run_help(command_name:str) -> None:
 	if command_name == "all":
 		minus:str = f"{Fore.LIGHTYELLOW_EX}-{Fore.RESET}"
 		def comment(content:str) -> str:
@@ -9,8 +9,12 @@ def help(command_name:str) -> None:
 		print(f"Spicer commands list")
 		print()
 		print(f"{minus} spicer help <command name> {comment('Provides information on a command')}")
+		print(f"{minus} spicer setup <project name> {comment('Sets up a new project')}")
 		print()
 		return
+	return
+
+def run_setup(project_name:str) -> None:
 	return
 
 def run(argc:int,argv:list[str]) -> None:
@@ -27,9 +31,17 @@ def run(argc:int,argv:list[str]) -> None:
 	if argv[1] == "help":
 		if argc < 3:
 			print()
-			print(f"Nuh uh. You {Fore.LIGHTRED_EX}MUST{Fore.RESET} a {Fore.LIGHTYELLOW_EX}command name{Fore.RESET}!")
+			print(f"Nuh uh. You {Fore.LIGHTRED_EX}must{Fore.RESET} a {Fore.LIGHTYELLOW_EX}command name{Fore.RESET}!")
 			print()
 			return
-		help(argv[2])
+		run_help(argv[2])
+		return
+	if argv[1] == "setup":
+		if argc < 3:
+			print()
+			print(f"Nuh uh. You {Fore.LIGHTRED_EX}must{Fore.RESET} a {Fore.LIGHTYELLOW_EX}project name{Fore.RESET}!")
+			print()
+			return
+		run_setup(argv[2])
 		return
 	return None
