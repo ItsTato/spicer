@@ -1,6 +1,6 @@
 import flask
 from flask import Flask
-from spicer import Spicer
+from flask_spicer import Spicer
 
 site:Flask = Flask(__name__)
 spicer:Spicer = Spicer(site)

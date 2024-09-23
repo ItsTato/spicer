@@ -3,3 +3,7 @@
 *__pycache__
 .idea
 .atom
+b-and-r.md
+build
+dist
+*egg-info
