@@ -12,7 +12,7 @@ class Spicer:
 		self.__spicer_folder:str = spicer_folder if spicer_folder is not None else path.join(str(self.__app.template_folder),path.join("..","spices"))
 		self.__pattern:str = r"&<([a-zA-Z_][a-zA-Z0-9_]*)\.([a-zA-Z_][a-zA-Z0-9_]*)>" # &<{parent}.{child}>
 
-	def __get_spices__(self,_path:str|None=None) -> list[str]:
+	def get_spices(self,_path:str|None=None) -> list[str]:
 		if _path is None: _path = self.__spicer_folder
 		if not path.exists(_path): raise Exception("No \"spicer\" folder was found.")
 		spices:list[str] = []
