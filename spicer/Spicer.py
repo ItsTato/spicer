@@ -50,7 +50,7 @@ class Spicer:
 			text = file.read()
 			html_template:str = render_template_string(text,*context)
 
-		return html_template
+		return self.patch(html_template,*context)
 
 	def patch(self,rendered:str,**context:Any) -> str:
 		"""
