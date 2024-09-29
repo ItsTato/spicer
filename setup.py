@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="flask-spicer",
-    version="1.0.0",
+    version="1.0.3",
     description="Improve your flask experience using elements",
     author="ItsTato",
     author_email="thatpogcomputer@gmail.com",
@@ -12,6 +12,11 @@ setup(
 		"flask",
 		"colorama>=0.4.6"
 	],
+	entry_points={
+		"console_scripts": [
+			"spicer=flask_spicer.cli:run"
+		]
+	},
     classifiers=[
         "Programming Language :: Python :: 3",
 		"Development Status :: 3 - Alpha",

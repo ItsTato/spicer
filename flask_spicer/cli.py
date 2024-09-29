@@ -1,4 +1,7 @@
+from os import mkdir
 from colorama import just_fix_windows_console, Fore
+from sys import argv
+argc:int = len(argv)
 
 def comment(content:str) -> str:
 	return f"{Fore.LIGHTBLACK_EX}# {content}{Fore.RESET}"
@@ -10,8 +13,9 @@ def run_help(command_name:str) -> None:
 		print(f"Spicer commands list")
 		print()
 		print(f"{minus} spicer help <command name> {comment('Provides information on a command')}")
-		print(f"{minus} spicer setup <project name> {comment('Sets up a new project')}")
+		print(f"{minus} spicer new <project name> {comment('Creates a new project')}")
 		print()
+
 		return
 	if command_name == "help":
 		print()
@@ -20,18 +24,18 @@ def run_help(command_name:str) -> None:
 		print(f"Gets information on a command (the <command name> argument). By passing \"all\" as the <command name> a list of every command will be generated.")
 		print()
 		return
-	if command_name == "setup":
+	if command_name == "new":
 		print()
-		print(f"{Fore.LIGHTYELLOW_EX}setup <project name> {Fore.RESET}| Command Information")
+		print(f"{Fore.LIGHTYELLOW_EX}new <project name> {Fore.RESET}| Command Information")
 		print()
-		print(f"Sets up a new project. The <project name> argument is the name of the project.")
+		print(f"Creates a new project. The <project name> argument is the name of the project.")
 		print()
 		return
 
-def run_setup(project_name:str) -> None:
+def run_new(project_name:str) -> None:
 	return
 
-def run(argc:int,argv:list[str]) -> None:
+def run() -> None:
 	just_fix_windows_console()
 	if argc < 2:
 		print()
@@ -50,12 +54,12 @@ def run(argc:int,argv:list[str]) -> None:
 			return
 		run_help(argv[2])
 		return
-	if argv[1] == "setup":
+	if argv[1] == "new":
 		if argc < 3:
 			print()
 			print(f"Nuh uh. You {Fore.LIGHTRED_EX}must{Fore.RESET} provide a {Fore.LIGHTYELLOW_EX}project name{Fore.RESET}!")
 			print()
 			return
-		run_setup(argv[2])
+		run_new(argv[2])
 		return
 	return None
