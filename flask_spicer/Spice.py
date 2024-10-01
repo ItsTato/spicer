@@ -2,10 +2,10 @@ class Spice:
 	def __init__(self,name:str) -> None:
 		self.__name:str = name
 
-		self.__html_file:str
-		self.__css_file:str|None
-		self.__js_pre_file:str|None
-		self.__js_aft_file:str|None
+		self.__html_file:str=""
+		self.__css_file:str|None=None
+		self.__js_pre_file:str|None=None
+		self.__js_aft_file:str|None=None
 	
 	@property
 	def Name(self) -> str:
