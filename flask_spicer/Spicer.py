@@ -49,6 +49,19 @@ class Spicer:
 		with open(path.join(template_folder,".html"),"r") as file:
 			text = file.read()
 			html_template:str = render_template_string(text,*context)
+		
+		if path.exists(path.join(template_folder,".css")):
+			with open(path.join(template_folder,".css"),"r") as file:
+				text = file.read()
+				html_template = html_template.replace("</head>",f"<style>{text}</style></head>")
+		if path.exists(path.join(template_folder,".pre.js")):
+			with open(path.join(template_folder,".pre.js"),"r") as file:
+				text = file.read()
+				html_template = html_template.replace("<body>",f"<body><script>{text}</script>")
+		if path.exists(path.join(template_folder,".aft.js")):
+			with open(path.join(template_folder,".aft.js"),"r") as file:
+				text = file.read()
+				html_template = html_template.replace("</body>",f"<style>{text}</style></body>")
 
 		return self.patch(html_template,*context)
 
