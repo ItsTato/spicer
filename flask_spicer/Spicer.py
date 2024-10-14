@@ -61,7 +61,7 @@ class Spicer:
 		if path.exists(path.join(template_folder,".aft.js")):
 			with open(path.join(template_folder,".aft.js"),"r") as file:
 				text = file.read()
-				html_template = html_template.replace("</body>",f"<style>{text}</style></body>")
+				html_template = html_template.replace("</body>",f"<script>{text}</script></body>")
 
 		return self.patch(html_template,*context)
 
