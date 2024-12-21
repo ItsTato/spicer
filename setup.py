@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="flask-spicer",
-    version="1.2.0",
+    version="1.2.1",
     description="Improve your flask experience using elements",
     author="ItsTato",
     author_email="thatpogcomputer@gmail.com",

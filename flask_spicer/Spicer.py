@@ -48,7 +48,7 @@ class Spicer:
 
 		with open(path.join(template_folder,".html"),"r") as file:
 			text = file.read()
-			html_template:str = render_template_string(text,*context)
+			html_template:str = render_template_string(text,**context)
 		
 		if path.exists(path.join(template_folder,".css")):
 			with open(path.join(template_folder,".css"),"r") as file:
@@ -63,7 +63,7 @@ class Spicer:
 				text = file.read()
 				html_template = html_template.replace("</body>",f"<script>{text}</script></body>")
 
-		return self.patch(html_template,*context)
+		return self.patch(html_template,**context)
 
 	def patch(self,rendered:str,**context:Any) -> str:
 		"""
