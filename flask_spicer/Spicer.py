@@ -77,7 +77,7 @@ class Spicer:
 
 		for constant in constants:
 			spice:Spice = self.load_spice(*constant)
-			spice.HTML_File = render_template_string(spice.HTML_File,*context)
+			spice.HTML_File = render_template_string(spice.HTML_File,**context)
 			rendered = rendered.replace(f"&<{constant[0]}.{constant[1]}>",spice.HTML_File)
 			if spice.CSS_File != None:
 				rendered = rendered.replace("</head>",f"<style>{spice.CSS_File}</style></head>")
